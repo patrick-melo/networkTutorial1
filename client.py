@@ -36,6 +36,8 @@ class Player():
         if keys[pygame.K_DOWN]:
             self.y += self.vel
 
+        self.rect = (self.x, self.y, self.width, self.height)
+
 
 def redrawWindow(win,player):
     win.fill((255,255,255))
@@ -46,8 +48,10 @@ def redrawWindow(win,player):
 def main():
     run = True
     p = Player(50,50,100,100,(0,255,0))
+    clock = pygame.time.Clock()
 
     while run:
+        clock.tick(60)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
